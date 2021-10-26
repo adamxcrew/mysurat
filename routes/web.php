@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+Use App\Http\Livewire\FaximileLivewire;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('faximile', FaximileLivewire::class);
+//    Route::get('/faximile/edit/{id}', [\App\Http\Controllers\FaxController::class,'edit']);
+//    Route::get('/faximile/delete/{id}', [\App\Http\Controllers\FaxController::class,'destroy']);
 });
 
 Route::get('/dashboard', function () {

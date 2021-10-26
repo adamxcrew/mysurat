@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Faximile;
 use Illuminate\Database\Seeder;
 
 class FaximileSeeder extends Seeder
@@ -13,6 +14,6 @@ class FaximileSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Faximile::factory()->count(1)->create();
     }
 }

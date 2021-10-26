@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function letters()
+    {
+        return $this->hasMany(Letter::class);
+    }
+
+    public function faximiles()
+    {
+        return $this->hasMany(Faximile::class, 'user_id', 'id');
+    }
 }

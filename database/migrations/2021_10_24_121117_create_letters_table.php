@@ -15,6 +15,14 @@ class CreateLettersTable extends Migration
     {
         Schema::create('letters', function (Blueprint $table) {
             $table->id();
+            $table->string('no_agenda',80);
+            $table->string('no_surat',80);
+            $table->string('asal_dokumen',125);
+            $table->string('perihal',255);
+            $table->string('file',50);
+            $table->foreignId('user_id')
+                ->constrained()
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

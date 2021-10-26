@@ -11,4 +11,10 @@ class Faximile extends Model
     protected $fillable = array(
       'no_agenda','no_dokumen','asal_dokumen','perihal','file'
     );
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
 }
