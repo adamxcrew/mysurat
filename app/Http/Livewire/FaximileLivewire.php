@@ -5,28 +5,31 @@ namespace App\Http\Livewire;
 use App\Models\Faximile;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Traits\ShowModalTrait;
+
 
 class FaximileLivewire extends Component
 {
-    use WithPagination, ModalTrait;
+    use WithPagination,ShowModalTrait;
+
     public Faximile $faximile;
+
     public bool $isOpen = false;
+    public int $type = 1;
 
     public function mount(){
         $this->faximile = new Faximile();
     }
 
-    public function showModal():void
+    private function tampilDelete():void
     {
-        $this->isOpen = true;
+        $this->type = 2;
     }
 
-    public function hideModal():void
+    private function hideDelete():void
     {
-        $this->isOpen = false;
+        $this->type = 1;
     }
-
-
 
     public function render()
     {
@@ -37,6 +40,13 @@ class FaximileLivewire extends Component
 
     public function edit($id)
     {
+       $this->hideDelete();
+       $this->showModal();
+    }
+
+    public function hapus($id)
+    {
+        $this->tampilDelete();
         $this->showModal();
     }
 }

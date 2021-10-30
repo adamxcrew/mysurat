@@ -1,4 +1,4 @@
-<button wire:click="edit({{$links}})" {{$attributes}} type="button">
+<button wire:click="{{$links}}" {{$attributes}} {{$type}} >
         {{$slot}}
 </button>
 

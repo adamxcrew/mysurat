@@ -26,6 +26,10 @@
                             </th>
                         </tr>
                         </thead>
+                        @if($isOpen)
+                            <x-modal.form-faximile :type="$type" />
+
+                        @endif
                         <tbody class="bg-white divide-y divide-gray-200">
                         @foreach($faks as $fax)
                             <tr>
@@ -58,10 +62,11 @@
                                     Admin
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <x-tabel.tombol type="button" links="{{$fax->id}}" class="bg-green-600 py-2 px-2 rounded text-white hover:text-red-600">
+                                    <x-tabel.tombol type="button" links="edit({{$fax->id}})" class="bg-green-600 py-2 px-2 rounded text-white hover:text-red-600">
                                         Edit
                                     </x-tabel.tombol>
-                                    <x-tabel.tombol type="button" links="1" class="bg-red-600 py-2 px-2 rounded text-white hover:text-green-600">
+
+                                    <x-tabel.tombol type="button" links='hapus({{$fax->id}})' class="bg-red-600 py-2 px-2 rounded text-white hover:text-green-600">
                                         Hapus
                                     </x-tabel.tombol>
                                 </td>
@@ -75,6 +80,4 @@
         </div>
     </div>
 </div>
-@if($isOpen)
-    <x-modal.form-faximile />
-@endif
+

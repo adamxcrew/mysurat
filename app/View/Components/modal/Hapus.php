@@ -4,18 +4,16 @@ namespace App\View\Components\modal;
 
 use Illuminate\View\Component;
 
-class FormFaximile extends Component
+class Hapus extends Component
 {
-
-    public $type;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($type)
+    public function __construct()
     {
-        $this->type = $type;
+        //
     }
 
     /**
@@ -25,6 +23,6 @@ class FormFaximile extends Component
      */
     public function render()
     {
-        return view('components.modal.form-faximile');
+        return view('components.modal.hapus');
     }
 }
